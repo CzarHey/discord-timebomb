@@ -1,0 +1,8 @@
+{//;Version 1.4
+}{randchoose;
+	Oh come on, you could've at least picked something! Well, now you're dead. You see that? Guts everywhere.;
+	Too slow! You were a sitting duck waiting for the bomb to go off. Try to save yourself next time!;
+	Well, it looks like {usernick;{get;~victim}} failed to pick a wire in time. Their indecisveness sure paid off. With their death!;
+	Please, {usernick;{get;~victim}}, you could've at least tried! Oh well. As the saying goes: you'll always lose if you don't try.;
+	Hello? Earth to {usernick;{get;~victim}}? You were just bombed! Next time, you should tell me which wire to cut to try to save yourself from annihilation.
+}
