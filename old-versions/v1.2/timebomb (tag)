@@ -1,0 +1,119 @@
+{//; BLARGBOT TIMEBOMB COMMAND
+
+* Created by k6ka#1014
+* Code is released under a Creative Commons Attribution-ShareAlike license
+* Give credit where credit is due!
+* See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
+
+Version 1.2T dated July 30, 2020
+}
+
+{//;Check to see if this is being run as a custom command in a server}
+{if;{iscc};{//;If true, then run the rest of the command}
+
+{//;Check to see if the user left the command blank}
+{if;>;{argslength};0;
+
+	{//;Check to see if the user ID is valid}
+	{set;~victim;{userid;{args};quiet}}
+	{if;{get;~victim};==;;
+	❌  |  Oops, I couldn't find the specified user in this server. Please specify a valid username or user ID.;
+  
+		{//;If user tried to blow up blargbot}
+		{if;{get;~victim};==;134133271750639616;❌  |  You thought you could trick me into bombing myself, {usermention}?!;
+			{//;If user tried to blow themselves up}
+			{if;{get;~victim};==;{userid};❌  |  Please, {usermention}! Pick a friend if you have to!;
+				{//;If user tried to blow up a bot}
+				{if;{userisbot;{get;~victim}};==;true;❌  |  I'm not bombing one of my own kin, {usermention}! Pick a *human* to blow up.;
+
+					{//;Else, let the show continue}
+
+					{//;First, set the wire color}
+					{set;~wireColor;{randchoose; 🔴 ; ⚪ ; 🔵 }}
+                  
+					{//;Then we get the text version}
+					{set;~wireColorText;
+						{switch;{get;~wireColor};
+							🔴 ; red;
+							⚪ ; white;
+							🔵 ; blue;
+							❌ **FATAL ERROR**: No wire color was set!!!
+						}
+					}
+
+					{//;Sends the first message to the channel the command was used in}
+					{set;~msgid;{send;{channelid};💣  |  {randchoose;
+						ね, {usermention;{get;~victim}}, there's a stowaway in your pants! It's a bomb on a one minute timer. There are three wires: red, white, and blue. Click on the colour emoji below to cut that wire and try to defuse the bomb!;
+						Hey {usermention;{get;~victim}}, someone shoved a bomb down your pants! There's one minute to go on the fuse, and there are three wires: red, white, and blue. Quick, click on the colour emoji below to tell me which wire to cut!;
+						Watch out, {usermention;{get;~victim}}! There's a bomb strapped to your undies! The timer is set for one minute, and there are three wires: red, white, and blue. Click on the colour emoji below to cut that wire.;
+						*Achtung!* There's a bomb down your pants, {usermention;{get;~victim}}! There's a one minute fuse on it, and there appears to be three wires: red, white, and blue. Given where it is, you should let me cut one of the wires for you{semi} click on the colour emoji below to tell me which one to cut!;
+						Hey {usermention;{get;~victim}}, I saw someone put a bomb down your pants. One minute fuse, three wires: red, white, and blue. Time is running out! Click on the colour emoji below to cut that wire.
+					}}}
+
+					{//; Add the corresponding reactions to the message}
+					{reactadd;{get;~msgid}; 🔴 ; ⚪ ; 🔵 }
+                  
+					{//;DMs the initiating user the colour of the correct wire}
+					{if;{flagset;q};==;true;{//;Don't send DMs - user has set quiet mode};{dm;{userid};Hey, don't tell {usernick;{get;~victim}}, but it's the {get;~wireColorText} wire.}}
+                  
+					{//; Wait until user reacts one of the emojis provided}
+					{void;
+						{waitreaction;{get;~msgid};{userid;{get;~victim}};🔴 ⚪ 🔵 ;{set;~reaction;{reaction}}
+						}
+					}
+
+					{//; Get the content of the reaction}
+					{switch;{get;~reaction};
+						🔴 ; {//; User reacted red}
+							{if;{get;~reaction};contains;{get;~wireColor};✅  |  {exec;bomb-successmsg};💥  |  {exec;bomb-failmsg} (You should have picked the {get;~wireColorText} wire) };
+						⚪  ; {//; User reacted white}
+							{if;{get;~reaction};contains;{get;~wireColor};✅  |  {exec;bomb-successmsg};💥  |  {exec;bomb-failmsg} (You should have picked the {get;~wireColorText} wire) };
+						🔵  ; {//; User reacted blue}
+							{if;{get;~reaction};contains;{get;~wireColor};✅  |  {exec;bomb-successmsg};💥  |  {exec;bomb-failmsg} (You should have picked the {get;~wireColorText} wire) };
+						{//;User didn't react in time}💥  |  {randchoose;
+							Oh come on, {usermention;{get;~victim}}, you could've at least picked something! Well, now you're dead. You see that? Guts everywhere.;
+							Too slow, {usermention;{get;~victim}}. You were a sitting duck waiting for the bomb to go off. Try to save yourself next time!;
+							Well, it looks like {usermention;{get;~victim}} failed to pick a wire in time. Their indecisveness sure paid off. With their death!;
+							Please, {usermention;{get;~victim}}, you could've at least tried! Oh well. As the saying goes: you'll always lose if you don't try.;
+							Hello? Earth to {usermention;{get;~victim}}? You were just bombed! Next time, you should tell me which wire to cut to try to save yourself from annihilation.}{//;Display the wire they should've cut after the fail message} (You should have picked the {get;~wireColorText} wire)
+					}
+				}
+			}
+		}
+	}
+  
+{//;If command was left empty}
+;{embed;
+  {embedbuild;
+	title:💣 Tick, tick... BOOM!;
+	description:Type ``b!{commandname} <username>`` to throw a bomb at someone! They have one minute to cut the correct wire or they will be blown to smithereens! Mentions will work, as will user IDs.;
+	color:e09040;
+    footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version 1.2T
+  }
+}
+}
+  
+;{//;If not being run as a CC, will output this instead}
+{embed;
+  {embedbuild;
+	title:💣 Tick, tick... BOOM!;
+	description:Many IRC bots have a "timebomb" fun command that provides endless hours of ensuing fun with other users. It works a little like this:{newline;2}{//;
+    }• User A uses the "timebomb" command on User B.{newline}{//;
+    }• The IRC bot will ping User B and present them with a selection of coloured wires to cut, along with how much time is on the fuse.{newline}{//;
+    }• User B needs to respond back with the correct colour in order to defuse the bomb.{newline}{//;
+    }• If User B guesses the right colour, they are saved.{newline}{//;
+    }• If User B guesses the wrong colour, or if they don't respond by the time the timer runs out, the bomb will go off.{newline;2}{//;
+    }I couldn't find any equivalent functionality on Discord, so I made my own implementation using blargbot's BBTag language. It works pretty well, and of course, I'm making the code for it open to everyone.{newline;2}{//;
+    }**Cool! How do I add this to my server?**{newline;2}{//;
+    }Since this command needs the ``send`` tag, which is disabled on the public tags system, you'll need to import this command into your server as a custom command in order for it to work. Before you begin, double-check the following:{newline;2}{//;
+    }• You are either the Owner of, or have Admin permissions on, the server you want to add it to.{newline}{//;
+    }• blargbot has permissions to Read and Send Messages, Add Emoji Reactions, and Read Message History.{newline;2}{//;
+    }You can then import the command in two ways:{newline;2}{//;
+    }1. Import this command to your server by typing ``b!cc import timebomb``. It will be available for use right away, with no additional setup, and you'll get the latest updates to the command automatically.{newline}{//;
+    }2. Import the command manually, which will give you more control over the command and allow you to customize it to your liking. Instructions can be found on [my blog](https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html).{newline;2}{//;
+    }I highly encourage you to give this a go and invite some of your friends over to play around with it. Relive some classic IRC fun right in the modern comforts of Discord!;
+	color:e09040;
+	footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version 1.2T
+  }
+}
+}
