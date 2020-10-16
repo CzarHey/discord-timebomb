@@ -1,0 +1,9 @@
+{//;Version 1.4
+}{randchoose;
+	Nope, wrong wire, {usernick;{get;~victim}}! Aww, now you've gone and killed yourself. Wow. Sorry.;
+	Whoops, looks like that wasn't the correct wire, {usernick;{get;~victim}}! Well, now you're dead. Sorry about that.;
+	Oops! That was the wrong wire, {usernick;{get;~victim}}! Oh great, now the bomb has gone off. RIP.;
+	The bomb went off and blew {usernick;{get;~victim}} to smithereens! Oh well, I'm sure they'll have better luck next time.;
+	Uh oh, the bomb's going off! Take cover!!! ...wait, {usernick;{get;~victim}}, the bomb is on YOU! Oh well, I guess you're going to die anyway.;
+	Aww, tough luck, {usernick;{get;~victim}}. Well, I guess I have to clean up all of the guts in this place.
+}
