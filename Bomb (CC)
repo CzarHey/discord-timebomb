@@ -28,6 +28,22 @@ Format is:
 	{output;❌  |  This command has been disabled in this channel by server staff.}{return}
 }
 
+{//;User blacklist—do not allow the command to be used by the following users.
+
+Format is:
+	<user ID> <username in comments>; true
+
+}
+{set;~userBanned;
+	{switch;{userid};
+		userID;true
+		;false
+	}
+}
+{if;{get;~userrBanned};
+	{output;❌  |  Sorry {usermention}, but you are not permitted to use this command.}{return}
+}
+
 {//;Check to see if the user left the command blank}
 {if;>;{argslength};0;
 
