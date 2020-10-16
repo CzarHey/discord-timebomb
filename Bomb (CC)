@@ -40,7 +40,7 @@ Format is:
 		;false
 	}
 }
-{if;{get;~userrBanned};
+{if;{get;~userBanned};
 	{output;❌  |  Sorry {usermention}, but you are not permitted to use this command.}{return}
 }
 
