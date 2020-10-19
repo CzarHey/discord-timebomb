@@ -20,8 +20,8 @@ Format is:
 }
 {set;~channelBanned;
 	{switch;{channelid};
-		channelID;true
-		;false
+		channelID;true;
+		false
 	}
 }
 {if;{get;~channelBanned};
@@ -36,8 +36,8 @@ Format is:
 }
 {set;~userBanned;
 	{switch;{userid};
-		userID;true
-		;false
+		userID;true;
+		false
 	}
 }
 {if;{get;~userBanned};
@@ -267,7 +267,12 @@ Format is:
 						{edit;{get;~msgID};;
 							{embedbuild;
 								title:{get;~msgEmoji} {get;~msgTitle};
-								description:{get;~msgText}{newline;2}{exec;bomb-successmsg};
+								description:{get;~msgText}{newline;2}{randchoose;
+									Success, {usernick;{get;~victim}}! That was the correct wire! You have defused the bomb!;
+									You did it, {usernick;{get;~victim}}! I'll be honest, I thought you were dead. But nope, you picked the right colour. Nicely done.;
+									Phew! Nice work, {usernick;{get;~victim}}! You defused the bomb successfully!;
+									Hey, the ticking sound's gone. Great job, {usernick;{get;~victim}}! You picked the right wire and saved yourself!
+								};
 								color:{get;~msgColor};
 								footer.icon_url:{useravatar};
 								footer.text:{get;~msgFooter}
@@ -281,7 +286,14 @@ Format is:
 						{edit;{get;~msgID};;
 							{embedbuild;
 								title:{get;~msgEmoji} {get;~msgTitle};
-								description:{get;~msgText}{newline;2}{exec;bomb-failmsg} (You should have picked the {get;~wireColorText} wire);
+								description:{get;~msgText}{newline;2}{randchoose;
+									Nope, wrong wire, {usernick;{get;~victim}}! Aww, now you've gone and killed yourself. Wow. Sorry.;
+									Whoops, looks like that wasn't the correct wire, {usernick;{get;~victim}}! Well, now you're dead. Sorry about that.;
+									Oops! That was the wrong wire, {usernick;{get;~victim}}! Oh great, now the bomb has gone off. RIP.;
+									The bomb went off and blew {usernick;{get;~victim}} to smithereens! Oh well, I'm sure they'll have better luck next time.;
+									Uh oh, the bomb's going off! Take cover!!! ...wait, {usernick;{get;~victim}}, the bomb is on YOU! Oh well, I guess you're going to die anyway.
+									Aww, tough luck, {usernick;{get;~victim}}. Well, I guess I have to clean up all of the guts in this place.
+								} (You should have picked the {get;~wireColorText} wire);
 								color:{get;~msgColor};
 								footer.icon_url:{useravatar};
 								footer.text:{get;~msgFooter}
@@ -295,7 +307,13 @@ Format is:
 						{edit;{get;~msgID};;
 							{embedbuild;
 								title:{get;~msgEmoji} {get;~msgTitle};
-								description:{get;~msgText}{newline;2}{exec;bomb-timeoutmsg} (You should have picked the {get;~wireColorText} wire);
+								description:{get;~msgText}{newline;2}{randchoose;
+									Oh come on, {usernick;{get;~victim}}, you could've at least picked something! Well, now you're dead. You see that? Guts everywhere.;
+									Too slow, {usernick;{get;~victim}}! You were a sitting duck waiting for the bomb to go off. Try to save yourself next time!;
+									Well, it looks like {usernick;{get;~victim}} failed to pick a wire in time. Their indecisveness sure paid off. With their death!;
+									Please, {usernick;{get;~victim}}, you could've at least tried! Oh well. As the saying goes: you'll always lose if you don't try.;
+									Hello? Earth to {usernick;{get;~victim}}? You were just bombed! Next time, you should tell me which wire to cut to try to save yourself from annihilation.
+								} (You should have picked the {get;~wireColorText} wire);
 								color:{get;~msgColor};
 								footer.icon_url:{useravatar};
 								footer.text:{get;~msgFooter}
