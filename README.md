@@ -10,7 +10,7 @@ The "timebomb" command was a fun command found on several IRC bots that provided
 
 This is a recreation of the classic IRC timebomb command for [Discord](https://discord.com/), a popular web-based chat service. It is written for [blargbot](https://blargbot.xyz/), an open source Discord bot that can be added to any Discord server for free.
 
-##Adding the bot to your server
+## Adding the bot to your server
 
 You must be the Owner of, or have the Administrator permission on, the server you would like to add the command to. Then, you must add blargbot to your server, if the bot is not already on the server.
 
@@ -37,7 +37,7 @@ The server settings menu opens.
 
 The bot should now be in your server and have all of the necessary permissions to operate the command.
 
-##Adding the command to your server
+## Adding the command to your server
 
 Once the bot has been added to your server, you may import the command to your server. There are two versions of the command you may import: the **Public Tags** version, and the **Custom Command** version.
 
@@ -45,7 +45,7 @@ The **Public Tags** version is easier to import, and will work out of the box wi
 
 The **Custom Command** version requires more setup, but offers more customizability and flexibility than the Public Tags version.
 
-###Adding the Public Tags version to your server
+### Adding the Public Tags version to your server
 
 To add the Public Tags version of the command to your server, do the following:
 
@@ -55,14 +55,14 @@ You can see when the bot has access by entering `b!ping` in any text channel. If
 
 The command will now be imported and available for use immediately.
 
-###Adding the Custom Command version to your server
+### Adding the Custom Command version to your server
 
-##Using the command
+## Using the command
 
-###Bombing a user
+### Bombing a user
 
-###Defusing a bomb
+### Defusing a bomb
 
-###Viewing the scores
+### Viewing the scores
 
 Work in progress. See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for details in the meantime.
