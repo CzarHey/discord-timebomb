@@ -5,12 +5,12 @@
 * Give credit where credit is due!
 * See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
 
-Version 2.0T Beta 3 dated November 2, 2020
+Version 2.0T Beta 4 dated November 15, 2020
 }
 {//;Version number}
 {void;
-	{set;~version;2.0T Beta 3}
-	{set;~dated;November 2, 2020}
+	{set;~version;2.0T Beta 4}
+	{set;~dated;November 15, 2020}
 }
 
 {//;Define debugging output, triggered with flag -d.}
@@ -59,7 +59,7 @@ Version 2.0T Beta 3 dated November 2, 2020
 		@timebomb-scores-success-guildid-victim: {get;@timebomb-scores-success-{guildid}-{get;~victim}}
 		@timebomb-scores-fail-guildid-victim: {get;@timebomb-scores-fail-{guildid}-{get;~victim}}
 		@timebomb-scores-timeout-guildid-victim: {get;@timebomb-scores-timeout-{guildid}-{get;~victim}}
-		@timebomb-scores-bombs-guildid-victim: {get;@timebomb-scores-bombs-{guildid}-{get;~victim}}
+		@timebomb-scores-bombs-guildid-userid: {get;@timebomb-scores-bombs-{guildid}-{userid}}
 		@timebomb-scores-streak-guildid-victim: {get;@timebomb-scores-streak-{guildid}-{get;~victim}}
 		@timebomb-scores-streakrecord-guildid-victim: {get;@timebomb-scores-streakrecord-{guildid}-{get;~victim}}
 		~timeLeftToBomb: {get;~timeLeftToBomb}
@@ -226,9 +226,35 @@ Edit the timebomb-userbanlist command for the list.
 		{//;Check user input.}
 		{if;{length;{flag;s}};>;0;
 			{set;~scoresUser;{suppresslookup}{userid;{flag;s}}}
-		}
-		{//;If user specified isn't found or is left blank, show server and global scores.}
-		{if;{get;~scoresUser};==;;
+			{if;{get;~scoresUser};==;;{//;
+				If user isn't found, display an error message
+				}❌  |  Oops! {usermention}, either I couldn't find the specified user in this server, or you cancelled the query! Here are some things you can try:{newline}{//;
+				}• Mention the user instead of typing out their username.{newline}{//;
+				}• Type out the full username, including the user tag.{newline}{//;
+				}• Use a user ID number instead of the username.{func.debug}
+				;{//;Else, display the scores}
+				{output;
+					{embed;
+						{embedbuild;
+							title:🏆 Timebomb Scores for {exec;person;{get;~scoresUser}};
+							description:{//;
+								}✅ Number of successful defusals: {if;{get;@timebomb-scores-success-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-success-{guildid}-{get;~scoresUser}}}{newline}{//;
+								}💥 Number of unsuccessful defusals: {if;{get;@timebomb-scores-fail-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-fail-{guildid}-{get;~scoresUser}}}{newline}{//;
+								}⏲️ Number of timeouts: {if;{get;@timebomb-scores-timeout-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-timeout-{guildid}-{get;~scoresUser}}}{newline}{//;
+								}💣 Number of bombs thrown: {if;{get;@timebomb-scores-bombs-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-bombs-{guildid}-{get;~scoresUser}}}{newline}{//;
+								}🌩️ Current winning streak: {if;{get;@timebomb-scores-streak-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-streak-{guildid}-{get;~scoresUser}}}{newline}{//;
+								}🏅 Highest streak: {if;{get;@timebomb-scores-streakrecord-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-streakrecord-{guildid}-{get;~scoresUser}}}
+                    	  ;
+							color:{if;{exec;usercolor;{get;~scoresUser}};==;;F7F8F9;{exec;usercolor;{get;~scoresUser}}};
+							thumbnail.url:{useravatar;{get;~scoresUser}};
+							footer.icon_url:{useravatar};
+							footer.text:This command was initiated by {exec;person;{userid}}
+						}
+					}
+					{func.debug}
+				}
+			}
+		;{//;If left blank, display server and global scores}
 			{output;
 				{embed;
 					{embedbuild;
@@ -250,28 +276,6 @@ Edit the timebomb-userbanlist command for the list.
 						footer.icon_url:{useravatar};
 						footer.text:This command was initiated by {exec;person;{userid}};
 						{if;{guildicon};==;null;{//;Do not use thumbnail.url if no guild icon is set, otherwise it will error out};thumbnail.url:{guildicon}{semi}}
-					}
-				}
-				{func.debug}
-			}
-		;
-			{//;If user is specified and found, show user scores}
-			{output;
-				{embed;
-					{embedbuild;
-						title:🏆 Timebomb Scores for {exec;person;{get;~scoresUser}};
-						description:{//;
-							}✅ Number of successful defusals: {if;{get;@timebomb-scores-success-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-success-{guildid}-{get;~scoresUser}}}{newline}{//;
-							}💥 Number of unsuccessful defusals: {if;{get;@timebomb-scores-fail-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-fail-{guildid}-{get;~scoresUser}}}{newline}{//;
-							}⏲️ Number of timeouts: {if;{get;@timebomb-scores-timeout-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-timeout-{guildid}-{get;~scoresUser}}}{newline}{//;
-							}💣 Number of bombs thrown: {if;{get;@timebomb-scores-bombs-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-bombs-{guildid}-{get;~scoresUser}}}{newline}{//;
-							}🌩️ Current winning streak: {if;{get;@timebomb-scores-streak-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-streak-{guildid}-{get;~scoresUser}}}{newline}{//;
-							}🏅 Highest streak: {if;{get;@timebomb-scores-streakrecord-{guildid}-{get;~scoresUser}};==;{//;Empty};0;{get;@timebomb-scores-streakrecord-{guildid}-{get;~scoresUser}}}
-                      ;
-						color:{if;{exec;usercolor;{get;~scoresUser}};==;;F7F8F9;{exec;usercolor;{get;~scoresUser}}};
-						thumbnail.url:{useravatar;{get;~scoresUser}};
-						footer.icon_url:{useravatar};
-						footer.text:This command was initiated by {exec;person;{userid}}
 					}
 				}
 				{func.debug}
@@ -407,8 +411,9 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 						Fire in the hole!;
 						I hear a fuse!;
 						Look out behind you!;
+						What's that ticking sound?;
 						Code Red: Bomb Threat!!!
-						}}
+					}}
 					{set;~msgText;
 						{randchoose;
 							ね, {usermention;{get;~victim}}, there's a stowaway in your pants! It's a bomb on a one minute timer. There are three wires: red, white, and blue. Click on the colour emoji below to cut that wire and try to defuse the bomb!;
@@ -624,7 +629,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 		fields.value:Type ``b!{commandname} <username>``, replacing ``<username>`` with the username of the user you want to bomb. You can also mention them, or use their user ID.{newline;2}{//;
 		}The bombed user will be pinged and presented with three wires—red, white, and blue—in the form of emoji reactions. They need to select one of the three in order to attempt to defuse the bomb. If they pick the right colour, they will be saved{semi} if they pick the wrong one, or don't pick one in time, they will be blown up.;
 		fields.name:Keeping Score;
-		fields.value:The command keeps count of all of the bombs you've thrown, and the number of times you defused or were blown up by a bomb. It also keeps track of your highest winning streak.{newline}{//;
+		fields.value:The command keeps track of all of the bombs you've thrown, and the number of times you defused or were blown up by a bomb. It also keeps track of your highest winning streak.{newline}{//;
 		}• To view the local and global scoreboard, type ``b!{commandname} -s``{newline}{//;
 		}• To view a user's scores, type ``b!{commandname} -s <username>``;
 		fields.name:Found a bug?;
@@ -641,20 +646,20 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 	{embedbuild;
 	title:💣 Tick, tick... BOOM!;
 	description:Many IRC bots have a "timebomb" fun command that provided endless hours of ensuing fun with other users. It works a little like this:{newline;2}{//;
-    }• User A uses the "timebomb" command on User B.{newline}{//;
-    }• The IRC bot will ping User B and present them with a selection of coloured wires to cut, along with how much time is on the fuse.{newline}{//;
-    }• User B needs to respond back with the correct colour in order to defuse the bomb.{newline}{//;
-    }• If User B guesses the right colour, they are saved.{newline}{//;
-    }• If User B guesses the wrong colour, or if they don't respond by the time the timer runs out, the bomb will go off.{newline;2}{//;
-    }I couldn't find any equivalent functionality on Discord, so I made my own implementation using blargbot's BBTag language. It works pretty well, and of course, I'm making the code for it open to everyone.{newline;2}{//;
-    }**Cool! How do I add this to my server?**{newline;2}{//;
-    }Since this command needs the ``send`` tag, which is disabled on the public tags system, you'll need to import this command into your server as a custom command in order for it to work. Before you begin, double-check the following:{newline;2}{//;
-    }• You are either the Owner of, or have the Admin permission on, the server you want to add it to.{newline}{//;
-    }• blargbot has permissions to Read and Send Messages, Add Emoji Reactions, and Read Message History.{newline;2}{//;
-    }You can then import the command in two ways:{newline;2}{//;
-    }1. Import this command to your server by typing ``b!cc import timebomb``. It will be available for use right away, with no additional setup, and you'll get the latest updates to the command automatically.{newline}{//;
-    }2. Import the command manually, which will give you more control over the command and allow you to customize it to your liking. Instructions can be found on [my blog](https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html "https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html").{newline;2}{//;
-    }I highly encourage you to give this a go and invite some of your friends over to play around with it. Relive some classic IRC fun right in the modern comforts of Discord!;
+		}• User A uses the "timebomb" command on User B.{newline}{//;
+		}• The IRC bot will ping User B and present them with a selection of coloured wires to cut, along with how much time is on the fuse.{newline}{//;
+		}• User B needs to respond back with the correct colour in order to defuse the bomb.{newline}{//;
+		}• If User B guesses the right colour, they are saved.{newline}{//;
+		}• If User B guesses the wrong colour, or if they don't respond by the time the timer runs out, the bomb will go off.{newline;2}{//;
+		}I couldn't find any equivalent functionality on Discord, so I made my own implementation using blargbot's BBTag language. It works pretty well, and of course, I'm making the code for it open to everyone.{newline;2}{//;
+		}**Cool! How do I add this to my server?**{newline;2}{//;
+		}Since this command needs the ``send`` tag, which is disabled on the public tags system, you'll need to import this command into your server as a custom command in order for it to work. Before you begin, double-check the following:{newline;2}{//;
+		}• You are either the Owner of, or have the Admin permission on, the server you want to add it to.{newline}{//;
+		}• blargbot has permissions to Read and Send Messages, Add Emoji Reactions, and Read Message History.{newline;2}{//;
+		}You can then import the command in two ways:{newline;2}{//;
+		}1. Import this command to your server by typing ``b!cc import timebomb``. It will be available for use right away, with no additional setup, and you'll get the latest updates to the command automatically.{newline}{//;
+		}2. Import the command manually, which will give you more control over the command and allow you to customize it to your liking. Instructions can be found on [my blog](https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html "https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html").{newline;2}{//;
+		}I highly encourage you to give this a go and invite some of your friends over to play around with it. Relive some classic IRC fun right in the modern comforts of Discord!;
 	color:e09040;
 	footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
 	}
