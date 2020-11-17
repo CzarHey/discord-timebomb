@@ -59,10 +59,40 @@ The command will now be imported and available for use immediately.
 
 ## Using the command
 
+Once added to your server, the command will work immediately, with no additional configuration needed.
+
 ### Bombing a user
 
 ### Defusing a bomb
 
 ### Viewing the scores
+
+## Managing the command
+
+### Banning users from the command
+
+### Banning channels from the command
+
+### Resetting a user's cooldown timer
+
+### Resetting a user's scores
+
+### Resetting a server's scores
+
+### Changing the bomb timer
+
+## Troubleshooting
+
+### Bot is throwing `No message found` errors
+
+### Bot is throwing `This command was not authorized by server staff` errors
+
+### Bot is throwing `I dont have permission to Add Reactions` errors
+
+### Bot is not responding to bombed user's input
+
+### Bomb does not go off after timer expires
+
+### Command takes a very long time to execute before throwing an `An internal server error has occurred` error
 
 Work in progress. See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for details in the meantime.
