@@ -73,7 +73,7 @@ If multiple users have the same username, the bot may present you with a list of
 
 `<insert image here>`
 
-When prompted, simply type the number of the user you wish to bomb. For example, to bomb `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
+When prompted, simply type the number of the user you wish to bomb. In the preceding example, to bomb `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
 
 ### Defusing a bomb
 
@@ -89,21 +89,87 @@ One of the three colours is designated as the correct wire colour. If you guess 
 
 By default, bombs have a one minute timer. If you do not pick a wire by the time the timer runs out, the bomb will detonate.
 
-### Viewing the scores
+### Viewing scores
 
+The bot keeps track of the number of times you've:
 
+* successfully defused a bomb
+* failed to defuse a bomb
+* ran out of time to defuse a bomb
+* bombed other users
+
+If you successfully defuse multiple bombs in a row, the bot will also keep track of your streak, as well as your highest winning streak for defusing bombs.
+
+#### Viewing user scores
+
+To view a user's scores, type `b!timebomb -s <user>`, replacing `<user>` with either:
+
+* a username (e.g. `John#0101`)
+* a user mention (e.g. `@John`)
+* a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
+
+If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
+
+`<insert image here>`
+
+When prompted, simply type the number of the user you wish to view the scores for. In the preceding example, to view the scores for `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
+
+#### Viewing server and global scores
+
+The bot keeps track of the total scores for all users in a server, as well as globally (across all of Discord).
+
+To view the scores for a server and for all of Discord, type `b!timebomb -s`, without providing a username after the `-s`.
 
 ## Managing the command
 
+Server admins have the ability to configure certain aspects of the command for debugging, troubleshooting, or testing purposes.
+
+Please note that, for maximum customizability, you should use the Custom Command version of the command. The Public Tags version of the command is much more limited in customization.
+
 ### Banning users from the command
+
+You can ban individual users from using the command. Users who are banned will receive an error message when they try to use the command.
 
 ### Banning channels from the command
 
+You can ban individual channels from using the command. When a user tries to use the command in a banned channel, they will receive an error message.
+
 ### Resetting a user's cooldown timer
+
+When a user bombs another user for the first time, the bot will record the timestamp of when they used the command and saves it to its internal database. When the user bombs again, it will check for the timestamp. If it has been more than 60 seconds since the time on the timestamp, or if it cannot find the timestamp, the user will be allowed to bomb, and the bot will save a new timestamp. If it has been less than 60 seconds, the bot will not allow the user to bomb and will inform the user how much time they have to wait before being allowed to bomb again.
+
+You can reset a user's cooldown timer by removing the timestamp. When the user attempts to bomb, the bot will not find a timestamp, and thus allow them to bomb again. This is useful for debugging and testing purposes where it would be inconvenient to wait one minute between bombings.
+
+To reset a user's cooldown timer, do the following:
+
+1. Enable [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
+2. Right-click on the username of the user you would like to reset the cooldown timer for.
+3. Select **Copy ID**.  
+The user's user ID will be copied to your clipboard.
+4. In any channel that the bot has access to, type `b!timebomb -r <user ID>`, replacing `<user ID>` with the user ID you copied in Step 3.
 
 ### Resetting a user's scores
 
+You can reset the scores of a user, if needed. Note that this will only apply to the server you run the command on, and will not affect their scores in other servers. Resetting a user's scores does not affect the server or global scoreboard.
+
+To reset a user's scores, do the following:
+
+1. Enable [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
+2. Right-click on the username of the user you would like to reset the scores for.
+3. Select **Copy ID**.  
+The user's user ID will be copied to your clipboard.
+4. In any channel that the bot has access to, type `b!timebomb -t <user ID>`, replacing `<user ID>` with the user ID you copied in Step 3.
+
 ### Resetting a server's scores
+
+You can reset a server's scoreboard. Note that this will only apply to the server you run the command on, and will not affect the scores in other servers. Resetting a user's scores does not affect the global scoreboard, nor will it reset the individual scores for each user.
+
+To reset a server's scores, do the following:
+
+1. In any channel that the bot has access to, type `b!timebomb -g`.  
+To avoid accidental use, you will be asked to enter a confirmation message.
+2. Enter the text that the bot asks you to retype exactly.  
+Entering any other text or waiting 15 seconds will cancel the query.
 
 ### Changing the bomb timer
 
