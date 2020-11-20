@@ -63,9 +63,35 @@ Once added to your server, the command will work immediately, with no additional
 
 ### Bombing a user
 
+To bomb a user, type `b!timebomb <user>`, replacing `<user>` with either:
+
+* a username (e.g. `John#0101`)
+* a user mention (e.g. `@John`)
+* a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
+
+If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
+
+`<insert image here>`
+
+When prompted, simply type the number of the user you wish to bomb. For example, to bomb `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
+
 ### Defusing a bomb
 
+When you are bombed, the bot will mention your username so you are notified. It will then provide you with a message containing three emoji reactions, consisting of a red, white, and blue circle, each representing a wire of the bomb.
+
+**Accessibility note:** The red, white, and blue circles will *always* be presented in the same order.
+
+To defuse the bomb, you need to cut one of the three wires shown. You do this by selecting one of the three emoji reactions below the bot's message.
+
+`<insert image here>`
+
+One of the three colours is designated as the correct wire colour. If you guess the right colour and select it, the bomb will be defused. If you guess the wrong colour, the bomb will detonate.
+
+By default, bombs have a one minute timer. If you do not pick a wire by the time the timer runs out, the bomb will detonate.
+
 ### Viewing the scores
+
+
 
 ## Managing the command
 
@@ -82,6 +108,10 @@ Once added to your server, the command will work immediately, with no additional
 ### Changing the bomb timer
 
 ## Troubleshooting
+
+### I am not seeing emoji reactions on the bot's messages
+
+⚙
 
 ### Bot is throwing `No message found` errors
 
