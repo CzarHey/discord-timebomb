@@ -264,18 +264,63 @@ Your browser will locate all instances in the code that configure the bomb timer
 
 ### I am not seeing emoji reactions on the bot's messages
 
-⚙
+If you are not seeing emoji reactions under messages, you may have emoji reactions disabled. To enable them, do the following:
+
+1. Go to **User Settings**. This is accessed by selecting the gear (⚙) icon at the bottom-left of the screen.
+2. Select **Text & Images**.
+3. Select **Show emoji reactions on messages**.  
+The option will have a checkmark and be coloured green.
+4. Select the **X** icon, or press **Esc**, to close the settings menu.
 
 ### Bot is throwing `No message found` errors
 
+If you are seeing this error, the bot does not have access to view the message history of the current channel. To enable access to message history, do the following:
+
+1. Select the server dropdown menu above the channel list and select **Server Settings**.  
+The server settings menu opens.
+2. Select **Roles**.
+3. Select **blargbot** from the list.
+4. Ensure that the **Read Message History** checkbox is selected.
+5. Select the **X** icon, or press **Esc**, to close the settings menu.
+
 ### Bot is throwing `This command was not authorized by server staff` errors
+
+If you are seeing this error, either the command was imported by someone who is not considered to be server staff by the bot, or the user who imported the command is no longer staff. The bot considers a user to be server staff if they have [these permissions](<https://discordapi.com/permissions.html#8254>).
+
+If you are using the Public Tags version of the command, first find a user who is considered to be server staff by the bot, or ask the server owner to give you the needed permissions. Then, do the following:
+
+1. Enter `b!cc delete timebomb`.  
+The command will be removed from your server.
+2. Enter `b!cc import timebomb`.  
+The command will be reimported under the credentials of the user who imported it.
+
+Deleting and reimporting the command will not affect the timebomb scores.
+
+If you are using the Custom Command version of the command, follow Step 1 listed above to delete the command. Then, reimport the command using the instructions under **Adding the Custom Command version to your server** on this page. 
 
 ### Bot is throwing `I dont have permission to Add Reactions` errors
 
+If you are seeing this error, the bot does not have access to add emoji reactions to messages. To grant access, do the following:
+
+1. Select the server dropdown menu above the channel list and select **Server Settings**.  
+The server settings menu opens.
+2. Select **Roles**.
+3. Select **blargbot** from the list.
+4. Ensure that the **Add Reactions** checkbox is selected.
+5. Select the **X** icon, or press **Esc**, to close the settings menu.
+
 ### Bot is not responding to bombed user's input
+
+If the bot is not responding to the bombed user's input, this can be caused by one of two things:
+
+* If the user selects an emoji reaction while the bot is still setting them up, that input will be ignored. Ask the user to remove their emoji reaction and try again.
+* If the bot is lagged, it may miss user input. Ask the user to remove their emoji reaction and try again.
+* If the bot goes down after the bomb is set, it will not be able to respond to user input. See the **Bomb does not go off after timer expires** section for additional details.
 
 ### Bomb does not go off after timer expires
 
+If a bomb has been set but does not appear to go off even after the timer has supposedly expired, it is possible that the bot had gone down after the bomb was set. In this case, the bomb is effectively "cancelled"; the bot will not respond to user input, and no scores will be recorded.
+
 ### Command takes a very long time to execute before throwing an `An internal server error has occurred` error
 
-Work in progress. See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for details in the meantime.
+If this occurs, the bot's database may be experiencing a temporary issue that prevents the cooldown timer from functioning correctly. Report the issue on the bot's support server.
