@@ -27,7 +27,7 @@ You may select **INVITE**; however, for best practices and security reasons, it 
   * Add Reactions
 6. Select **Authorize**.
 7. Go to Discord and select your server.  
-The bot should have now joined the server and appear in the user list.
+The bot should have joined the server and appear in the user list.
 8. Select the server dropdown menu above the channel list and select **Server Settings**.  
 The server settings menu opens.
 9. Select **Roles**.
@@ -155,9 +155,55 @@ Please note that, for maximum customizability, you should use the Custom Command
 
 You can ban individual users from using the command. Users who are banned will receive an error message when they try to use the command.
 
+If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a user from the command. You can reach him on Blargbot's support server.
+
+If you are using the Custom Command version of the command, you can ban users yourself. Before doing this, you must copy the user ID of the user you would like to ban. You may find instructions on how to do so in this [support article](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
+
+Then, do the following:
+
+1. Open the [BBTag Editor](https://blargbot.xyz/tags/editor).
+2. Under **Tag Name**, enter `timebomb-userbanlist`.
+3. Select **Load**.  
+The user ban list will load. By default, it will look like this:  
+```{//;
+Format is:
+	<user ID> <name of user in comments>; true
+}{switch;{userid};
+	userID;true;
+	false
+}
+```
+4. Replace `userID;true;` with `X;true;`, with `X` being the user ID of the user you would like to ban.  
+To ban multiple users, add a new line under the first entry, and follow the same format.  
+Do not remove `false` or the bracket on the last line.
+5. When finished, select **Save**.
+
 ### Banning channels from the command
 
 You can ban individual channels from using the command. When a user tries to use the command in a banned channel, they will receive an error message.
+
+If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a channel from the command. You can reach him on Blargbot's support server.
+
+If you are using the Custom Command version of the command, you can ban channels yourself. Before doing this, you must copy the channel ID of the channel you would like to ban. You may find instructions on how to do so in this [support article](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
+
+Then, do the following:
+
+1. Open the [BBTag Editor](https://blargbot.xyz/tags/editor).
+2. Under **Tag Name**, enter `timebomb-channelbanlist`.
+3. Select **Load**.  
+The channel ban list will load. By default, it will look like this:  
+```{//;
+Format is:
+    <channel ID> <name of channel in comments>; true
+}{switch;{channelid};{//;
+    }channelID;true;
+    false
+}
+```
+4. Replace `channelID;true;` with `X;true;`, with `X` being the channel ID of the channel you would like to ban.  
+To ban multiple channel, add a new line under the first entry, and follow the same format.  
+Do not remove `false` or the bracket on the last line.
+5. When finished, select **Save**.
 
 ### Resetting a user's cooldown timer
 
@@ -197,6 +243,22 @@ To avoid accidental use, you will be asked to enter a confirmation message.
 Entering any other text or waiting 15 seconds will cancel the query.
 
 ### Changing the bomb timer
+
+The bomb timer is the amount of time that users have to defuse the bomb before it goes off. By default, this is 60 seconds, or one minute.
+
+If you are using the Public Tags version of the command, the bomb timer currently cannot be changed. If you are using the Custom Command version of the command, you can adjust the bomb timer by editing the code of the command. **Note that this is an advanced procedure and should not be attempted if you are not familiar with BBTag.**
+
+To change the bomb timer, do the following:
+
+1. Open the [BBTag Editor](https://blargbot.xyz/tags/editor) and load your timebomb command.
+2. Under **Tag Name**, enter the name of your timebomb command that you had previously configured.
+3. Select **Load**.
+4. Press **Ctrl**-**F** (Windows) or **Command**-**F** (macOS).  
+Your browser's find toolbar will open.
+5. Enter `;60`.  
+Your browser will locate all instances in the code that configure the bomb timer.
+6. Replace `60` with the new time you would like to use, in seconds.
+7. Change the output text in the command as needed to reflect the new change.
 
 ## Troubleshooting
 
