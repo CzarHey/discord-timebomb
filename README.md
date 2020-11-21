@@ -57,6 +57,31 @@ The command will now be imported and available for use immediately.
 
 ### Adding the Custom Command version to your server
 
+The Custom Command version must be manually imported to your server and requires more setup, but allows for more flexibility and customization. It is recommended that you be familiar with Blargbot's functions before attempting to set up the Custom Command version.
+
+To set up the Custom Command version of the command, do the following:
+
+1. Go to the [BBTag Editor](https://blargbot.xyz/tags/editor).  
+If you are prompted to allow the tool access to your account, select **Authorize**.
+2. Under **Destination**, select the server you would like to add the command to from the dropdown menu.
+3. Under **Tag Name**, enter the name you would like to use for the timebomb command. Users on your server will use this name to invoke the command. If you are not sure what to enter, enter `bomb` or `timebomb`.
+4. Go to -insert link here-
+5. Copy the code from the page and paste it in the BBTag Editor.
+6. Select **Save**.  
+The command will be created on your server.
+7. Under **Tag Name**, enter `timebomb-channelbanlist`.
+8. Select all of the text in the BBTag Editor and remove it.
+8. Go to -insert link here-
+9. Copy the code from the page and paste it in the BBTag Editor.
+10. Select **Save**.  
+The channel ban list will be created.
+11. Under **Tag Name**, enter `timebomb-userbanlist`.
+12. Select all of the text in the BBTag Editor and remove it.
+13. Go to -insert link here-
+14. Copy the code from the page and paste it in the BBTag Editor.
+15. Select **Save**.  
+The user ban list will be created.
+
 ## Using the command
 
 Once added to your server, the command will work immediately, with no additional configuration needed.
