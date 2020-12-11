@@ -96,7 +96,7 @@ To bomb a user, type `b!timebomb <user>`, replacing `<user>` with either:
 
 If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
 
-`<insert image here>`
+![Image of blarbot's multi-user selection panel](https://raw.githubusercontent.com/CzarHey/discord-timebomb/main/resources/blargbot%20multi-user%20selection%20demonstration.png)
 
 When prompted, simply type the number of the user you wish to bomb. In the preceding example, to bomb `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
 
@@ -108,7 +108,7 @@ When you are bombed, the bot will mention your username so you are notified. It 
 
 To defuse the bomb, you need to cut one of the three wires shown. You do this by selecting one of the three emoji reactions below the bot's message.
 
-`<insert image here>`
+![Image of the three emoji reactions that blargbot appends on the bombing message](https://raw.githubusercontent.com/CzarHey/discord-timebomb/main/resources/bomb%20wire%20colour%20emoji%20location.png)
 
 One of the three colours is designated as the correct wire colour. If you guess the right colour and select it, the bomb will be defused. If you guess the wrong colour, the bomb will detonate.
 
@@ -135,7 +135,7 @@ To view a user's scores, type `b!timebomb -s <user>`, replacing `<user>` with ei
 
 If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
 
-`<insert image here>`
+![Image of blarbot's multi-user selection panel](https://raw.githubusercontent.com/CzarHey/discord-timebomb/main/resources/blargbot%20multi-user%20selection%20demonstration.png)
 
 When prompted, simply type the number of the user you wish to view the scores for. In the preceding example, to view the scores for `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
 
