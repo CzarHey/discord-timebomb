@@ -65,19 +65,19 @@ To set up the Custom Command version of the command, do the following:
 If you are prompted to allow the tool access to your account, select **Authorize**.
 2. Under **Destination**, select the server you would like to add the command to from the dropdown menu.
 3. Under **Tag Name**, enter the name you would like to use for the timebomb command. Users on your server will use this name to invoke the command. If you are not sure what to enter, enter `bomb` or `timebomb`.
-4. Go to -insert link here-
+4. Go to https://github.com/CzarHey/discord-timebomb/blob/main/Custom%20Command/Timebomb%20(CC)
 5. Copy the code from the page and paste it in the BBTag Editor.
 6. Select **Save**.  
 The command will be created on your server.
 7. Under **Tag Name**, enter `timebomb-channelbanlist`.
 8. Select all of the text in the BBTag Editor and remove it.
-8. Go to -insert link here-
+8. Go to https://github.com/CzarHey/discord-timebomb/blob/main/Custom%20Command/timebomb-channelbanlist
 9. Copy the code from the page and paste it in the BBTag Editor.
 10. Select **Save**.  
 The channel ban list will be created.
 11. Under **Tag Name**, enter `timebomb-userbanlist`.
 12. Select all of the text in the BBTag Editor and remove it.
-13. Go to -insert link here-
+13. Go to https://github.com/CzarHey/discord-timebomb/blob/main/Custom%20Command/timebomb-userbanlist
 14. Copy the code from the page and paste it in the BBTag Editor.
 15. Select **Save**.  
 The user ban list will be created.
