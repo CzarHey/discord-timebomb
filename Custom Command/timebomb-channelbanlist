@@ -1,0 +1,7 @@
+{//;
+Format is:
+    <channel ID> <name of channel in comments>; true
+}{switch;{channelid};{//;
+    }channelID;true;
+    false
+}
