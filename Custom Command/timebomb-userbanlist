@@ -1,0 +1,7 @@
+{//;
+Format is:
+	<user ID> <name of user in comments>; true
+}{switch;{userid};{//;
+	}userID;true;
+	false
+}
