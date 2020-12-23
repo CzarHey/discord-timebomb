@@ -657,7 +657,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 		}• You are either the Owner of, or have the Admin permission on, the server you want to add it to.{newline}{//;
 		}• blargbot has permissions to Read and Send Messages, Add Emoji Reactions, and Read Message History.{newline;2}{//;
 		}You can then import the command to your server by typing `b!cc import timebomb` in any channel the bot has access to. The command will automatically be added to your server, and can be used by typing `b!timebomb`. If desired, you may rename the command using the `b!cc rename` command.{newline;2}{//;
-		}If you would like more customization, or if you would like to view the source code of the command, you can do so on [GitHub](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
+		}If you would like more customization, or if you would like to view the source code of the command, please see the [GitHub repository](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
 		}I highly encourage you to give this a go and invite some of your friends over to play around with it. Relive some classic IRC fun right in the modern comforts of Discord!;
 	color:e09040;
 	footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
