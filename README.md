@@ -382,3 +382,12 @@ Please do not send me a friend request, as I do not accept friend requests from 
   * Embed links show destination URL upon mouseover.
   * Remove redundant `{guildid}` subtag from local CC version.
 * Version 2.0
+  * New features
+    * Bomb messages are now formatted using Discord embeds.
+Bomb messages show the user that threw the bomb to prevent "incognito" bombing.
+New server and global scores feature added. Server scores keep track of the total scores on the current server, while global scores keep track of the total scores used on the command on all servers. Global scores are only available on the public tags version of the command.
+New highest winning streak feature added. These keep track of the highest winning streak on a user, server, and global level.
+Scores output now show the user avatar and server icon, if set.
+Individual users, channels, and servers can now be banned from using the command.
+Scores output is now available in the Public Tags version of the command.
+Command now contains more descriptive built-in documentation.
