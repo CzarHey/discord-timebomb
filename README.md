@@ -383,7 +383,7 @@ Please do not send me a friend request, as I do not accept friend requests from 
   * Addressed an issue with the cooldown timer reset command that resulted in the rest of the command running erroneously when used.
   * Embed links show destination URL upon mouseover.
   * Remove redundant `{guildid}` subtag from local CC version.
-* Version 2.0
+* Version 2.0 (released December 23, 2020)
   * New features
     * Bomb messages are now formatted using Discord embeds.
     * Bomb messages show the user that threw the bomb to prevent "incognito" bombing.
