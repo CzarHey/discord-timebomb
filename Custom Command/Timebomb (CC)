@@ -5,12 +5,12 @@
 * Give credit where credit is due!
 * See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
 
-Version 2.0CC Beta 6 dated December 11, 2020
+Version 2.0CC Beta 7 dated December 23, 2020
 }
 {//;Version number}
 {void;
-	{set;~version;2.0CC Beta 6}
-	{set;~dated;December 11, 2020}
+	{set;~version;2.0CC Beta 7}
+	{set;~dated;December 23, 2020}
 }
 
 {//;Define debugging output, triggered with flag -d.}
@@ -261,7 +261,9 @@ Edit the timebomb-userbanlist command for the list.
 					}• To reset a user's score, type `b!{commandname} -t <user ID>`{newline}{//;
 					}• To reset the current server's scores, type `b!{commandname} -g`{newline;2}{//;
 					}**__Debug mode__**{newline;2}{//;
-					}Blargbot's `b!cc debug` feature does not work properly for imported commands. To partly remedy this, there is a built-in debug output feature. To enable debug output, use flag `-d` anywhere in the command. The debug output will be provided when the command ends.{newline;2}{//;
+					}To enable debug output, use flag `-d` anywhere in the command. The debug output will be provided when the command ends.{newline;2}{//;
+					}**__GitHub__**{newline;2}{//;
+					}You can access more help or view the source code of the command on [GitHub](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
 					}*Type `b!{commandname} -h 2` to view information about troubleshooting.*;
 					color:e09040;
 					footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
