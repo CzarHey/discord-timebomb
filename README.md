@@ -335,6 +335,8 @@ The Custom Command version uses local variables to store the scores. This is to 
 
 The consequence to this approach is that the scores are stored under the name that you initially created the command under. If you rename the command, the variables will not be moved over to the new name, and thus all scores will appear to have been reset. Reverting the rename and moving the command back to the old name will restore the scores.
 
+This issues does not affect the Public Tags version of the command, as all scores are stored as author variables under k6ka's name. This ensures that they are consistent across servers and cannot be im 
+
 ### Mentions show `@invalid-user` on mobile after the bomb is detonated or defused
 
 It is not entirely clear what exactly causes this issue. The issue is not present on the desktop app or on the browser version of Discord, nor does it affect mentions in the embed.
