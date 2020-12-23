@@ -92,7 +92,7 @@ To bomb a user, type `b!timebomb <user>`, replacing `<user>` with either:
 
 * a username (e.g. `John#0101`)
 * a user mention (e.g. `@John`)
-* a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
+* a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-))
 
 If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
 
