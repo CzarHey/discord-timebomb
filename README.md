@@ -344,3 +344,41 @@ It is not entirely clear what exactly causes this issue. The issue is not presen
 If you need help with the command, please join blargbot's [support server](https://discord.gg/015GVxZxI8rtlJgXF). My username is `k6ka#1014`; feel free to ping me and ask your question. If you share another server with me, you can also ping me there as well.
 
 Please do not send me a friend request, as I do not accept friend requests from people I do not recognize.
+
+## Changelog
+
+* Version 1.0 (released May 8, 2020)
+*  Initial release
+* Version 1.1 (released June 21, 2020)
+  * Switch "wireColor" and "wireColorText" to use temporary variables for faster performance.
+  * Adjust bomb-failmsg mention positioning for consistency.
+  * Add version and author information in command code.
+* Version 1.1T (released July 26, 2020)
+  * Initial release of the public tags import version.
+* Version 1.2 (released July 30, 2020)
+  * Restructure code for easier readability.
+  * Update default message (used when no parameters are given) to use Discord embed.
+  * Display version number in default message.
+  * (Public tags version only) Default message displays creator name and CC BY-SA license.
+  * Bot DMs the correct wire colour to the initiating user.
+* Version 1.3 (released August 7, 2020)
+  * Add built-in cooldown timer that prevents users from bombing again if they had already successfully bombed someone less than a minute ago.
+  * Default message displays creator name and CC BY-SA license on both versions.
+  * Add debug output flag for debugging purposes.
+  * Add reset variables flag for debugging purposes.
+  * Add experimental help flag to display help output.
+  * Add information on where to report bugs for the command.
+* Version 1.4 (released September 10, 2020)
+  * Command now only sends one message. When the user picks a wire colour (or fails to select one in time), the bot will now edit the first message sent, rather than sending a second message.
+  * Update success, fail, and timeout messages to reflect this new change.
+  * Timeout messages broken off into separate auxiliary command.
+  * Built-in cooldown timer uses local variables to address an exploit that allowed non-admins to reset their cooldown timer.
+  * Update "user not found" message to include user mentions.
+  * `currentTimeMinusLastTime` temporary variable no longer uses redundant `{userid}` tag.
+  * Fix hidden `{waitreaction}` error (was only visible in debug output).
+* Version 1.5 (released September 26, 2020)
+  * Add scores feature that keeps track of user bombs, successful and unsuccessful defusals, timeouts, and win streaks.
+  * Addressed an issue with the cooldown timer reset command that resulted in the rest of the command running erroneously when used.
+  * Embed links show destination URL upon mouseover.
+  * Remove redundant `{guildid}` subtag from local CC version.
+* Version 2.0
