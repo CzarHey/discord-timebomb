@@ -559,8 +559,9 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 		fields.value:The command keeps track of all of the bombs you've thrown, and the number of times you defused or were blown up by a bomb. It also keeps track of your highest winning streak.{newline}{//;
 		}• To view the server scoreboard, type `b!{commandname} -s`{newline}{//;
 		}• To view a user's scores, type `b!{commandname} -s <username>`;
-		fields.name:Found a bug?;
-		fields.value:Join the [blargbot support server](https://discord.gg/015GVxZxI8rtlJgXF "https://discord.gg/015GVxZxI8rtlJgXF") and find me, {exec;person;249223024962830338}, there. I'll do my best to help you out.;
+		fields.name:Need help?;
+		fields.value:Type `b!{commandname} -h` to view additional documentation for the command. You can also find more documentation on [GitHub](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
+		}If you have any questions, or if you found a bug with the command, join the [blargbot support server](https://discord.gg/015GVxZxI8rtlJgXF "https://discord.gg/015GVxZxI8rtlJgXF") and find me, {exec;person;249223024962830338}, there. I'll do my best to help you out.;
 		color:e09040;
 		footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
 	}
