@@ -384,10 +384,23 @@ Please do not send me a friend request, as I do not accept friend requests from 
 * Version 2.0
   * New features
     * Bomb messages are now formatted using Discord embeds.
-Bomb messages show the user that threw the bomb to prevent "incognito" bombing.
-New server and global scores feature added. Server scores keep track of the total scores on the current server, while global scores keep track of the total scores used on the command on all servers. Global scores are only available on the public tags version of the command.
-New highest winning streak feature added. These keep track of the highest winning streak on a user, server, and global level.
-Scores output now show the user avatar and server icon, if set.
-Individual users, channels, and servers can now be banned from using the command.
-Scores output is now available in the Public Tags version of the command.
-Command now contains more descriptive built-in documentation.
+    * Bomb messages show the user that threw the bomb to prevent "incognito" bombing.
+    * New server and global scores feature added. Server scores keep track of the total scores on the current server, while global scores keep track of the total scores used on the command on all servers. Global scores are only available on the public tags version of the command.
+    * New highest winning streak feature added. These keep track of the highest winning streak on a user, server, and global level.
+    * Scores output now show the user avatar and server icon, if set.
+    * Individual users, channels, and servers can now be banned from using the command.
+    * Scores output is now available in the Public Tags version of the command.
+    * Command now contains more descriptive built-in documentation.
+  * Issues resolved
+    * When there are multiple users with the same username, the bot will now provide a dialog allowing the user to choose the specified user from a list, rather than throwing a "User not found" error.
+    * Users can no longer bomb users that are not on the current server by providing a user ID.
+    * Command will now show a warning if the author of the command is not staff, rather than attempting to run the command without the needed permissions.
+  * Behind-the-scenes changes
+    * Debug output now exported to an external source due to its size. They are linked to from the command, and will expire seven days after being generated.
+    * Success, fail, and timeout messages are now bundled with the command, meaning that auxiliary commands are no longer required for the command to work. All code is contained in the same command, making it much easier to import manually.
+    * (Public tags version only) Scores now use author variables in order to allow them to persist across servers and remain the same even when the command is renamed locally. This will mean that any scores set prior to this update will be lost.
+  * Other changes
+    * This command's code is now hosted on GitHub to make it easier to organize and update in the future.
+    * The public tags version is now drastically different from the CC version. The main differences include:
+      * Scores use local variables instead of author variables, so they are not tied to the user who imported the command. This means that scores will not be carried over if the command is renamed.
+      * Scores are entirely local and is not tied to the scores on the public tags system. This means that global scores are not available.
