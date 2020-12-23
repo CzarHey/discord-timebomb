@@ -335,6 +335,8 @@ The Custom Command version uses local variables to store the scores. This is to 
 
 The consequence to this approach is that the scores are stored under the name that you initially created the command under. If you rename the command, the variables will not be moved over to the new name, and thus all scores will appear to have been reset. Reverting the rename and moving the command back to the old name will restore the scores.
 
+This issues does not affect the Public Tags version of the command, as all scores are stored as author variables under k6ka's name. This ensures that they are consistent across servers and cannot be im 
+
 ### Mentions show `@invalid-user` on mobile after the bomb is detonated or defused
 
 It is not entirely clear what exactly causes this issue. The issue is not present on the desktop app or on the browser version of Discord, nor does it affect mentions in the embed.
@@ -344,3 +346,63 @@ It is not entirely clear what exactly causes this issue. The issue is not presen
 If you need help with the command, please join blargbot's [support server](https://discord.gg/015GVxZxI8rtlJgXF). My username is `k6ka#1014`; feel free to ping me and ask your question. If you share another server with me, you can also ping me there as well.
 
 Please do not send me a friend request, as I do not accept friend requests from people I do not recognize.
+
+## Changelog
+
+* Version 1.0 (released May 8, 2020)
+*  Initial release
+* Version 1.1 (released June 21, 2020)
+  * Switch "wireColor" and "wireColorText" to use temporary variables for faster performance.
+  * Adjust bomb-failmsg mention positioning for consistency.
+  * Add version and author information in command code.
+* Version 1.1T (released July 26, 2020)
+  * Initial release of the public tags import version.
+* Version 1.2 (released July 30, 2020)
+  * Restructure code for easier readability.
+  * Update default message (used when no parameters are given) to use Discord embed.
+  * Display version number in default message.
+  * (Public tags version only) Default message displays creator name and CC BY-SA license.
+  * Bot DMs the correct wire colour to the initiating user.
+* Version 1.3 (released August 7, 2020)
+  * Add built-in cooldown timer that prevents users from bombing again if they had already successfully bombed someone less than a minute ago.
+  * Default message displays creator name and CC BY-SA license on both versions.
+  * Add debug output flag for debugging purposes.
+  * Add reset variables flag for debugging purposes.
+  * Add experimental help flag to display help output.
+  * Add information on where to report bugs for the command.
+* Version 1.4 (released September 10, 2020)
+  * Command now only sends one message. When the user picks a wire colour (or fails to select one in time), the bot will now edit the first message sent, rather than sending a second message.
+  * Update success, fail, and timeout messages to reflect this new change.
+  * Timeout messages broken off into separate auxiliary command.
+  * Built-in cooldown timer uses local variables to address an exploit that allowed non-admins to reset their cooldown timer.
+  * Update "user not found" message to include user mentions.
+  * `currentTimeMinusLastTime` temporary variable no longer uses redundant `{userid}` tag.
+  * Fix hidden `{waitreaction}` error (was only visible in debug output).
+* Version 1.5 (released September 26, 2020)
+  * Add scores feature that keeps track of user bombs, successful and unsuccessful defusals, timeouts, and win streaks.
+  * Addressed an issue with the cooldown timer reset command that resulted in the rest of the command running erroneously when used.
+  * Embed links show destination URL upon mouseover.
+  * Remove redundant `{guildid}` subtag from local CC version.
+* Version 2.0
+  * New features
+    * Bomb messages are now formatted using Discord embeds.
+    * Bomb messages show the user that threw the bomb to prevent "incognito" bombing.
+    * New server and global scores feature added. Server scores keep track of the total scores on the current server, while global scores keep track of the total scores used on the command on all servers. Global scores are only available on the public tags version of the command.
+    * New highest winning streak feature added. These keep track of the highest winning streak on a user, server, and global level.
+    * Scores output now show the user avatar and server icon, if set.
+    * Individual users, channels, and servers can now be banned from using the command.
+    * Scores output is now available in the Public Tags version of the command.
+    * Command now contains more descriptive built-in documentation.
+  * Issues resolved
+    * When there are multiple users with the same username, the bot will now provide a dialog allowing the user to choose the specified user from a list, rather than throwing a "User not found" error.
+    * Users can no longer bomb users that are not on the current server by providing a user ID.
+    * Command will now show a warning if the author of the command is not staff, rather than attempting to run the command without the needed permissions.
+  * Behind-the-scenes changes
+    * Debug output now exported to an external source due to its size. They are linked to from the command, and will expire seven days after being generated.
+    * Success, fail, and timeout messages are now bundled with the command, meaning that auxiliary commands are no longer required for the command to work. All code is contained in the same command, making it much easier to import manually.
+    * (Public tags version only) Scores now use author variables in order to allow them to persist across servers and remain the same even when the command is renamed locally. This will mean that any scores set prior to this update will be lost.
+  * Other changes
+    * This command's code is now hosted on GitHub to make it easier to organize and update in the future.
+    * The public tags version is now drastically different from the CC version. The main differences include:
+      * Scores use local variables instead of author variables, so they are not tied to the user who imported the command. This means that scores will not be carried over if the command is renamed.
+      * Scores are entirely local and is not tied to the scores on the public tags system. This means that global scores are not available.
