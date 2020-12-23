@@ -27,7 +27,7 @@ You may select **INVITE**; however, for best practices and security reasons, it 
   * Add Reactions
 6. Select **Authorize**.
 7. Go to Discord and select your server.  
-The bot should have joined the server and appear in the user list.
+The bot should have joined the server and appeared in the user list.
 8. Select the server dropdown menu above the channel list and select **Server Settings**.  
 The server settings menu opens.
 9. Select **Roles**.
@@ -57,7 +57,7 @@ The command will now be imported and available for use immediately.
 
 ### Adding the Custom Command version to your server
 
-The Custom Command version must be manually imported to your server and requires more setup, but allows for more flexibility and customization. It is recommended that you be familiar with Blargbot's functions before attempting to set up the Custom Command version.
+The Custom Command version must be manually imported to your server and requires more setup, but allows for more flexibility and customization. It is recommended that you be familiar with blargbot's functions before attempting to set up the Custom Command version.
 
 To set up the Custom Command version of the command, do the following:
 
@@ -81,6 +81,8 @@ The channel ban list will be created.
 14. Copy the code from the page and paste it in the BBTag Editor.
 15. Select **Save**.  
 The user ban list will be created.
+
+The command will now be imported and can be used on your server.
 
 ## Using the command
 
@@ -155,7 +157,7 @@ Please note that, for maximum customizability, you should use the Custom Command
 
 You can ban individual users from using the command. Users who are banned will receive an error message when they try to use the command.
 
-If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a user from the command. You can reach him on Blargbot's support server.
+If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a user from the command. You can reach him on blargbot's [support server](https://discord.gg/015GVxZxI8rtlJgXF).
 
 If you are using the Custom Command version of the command, you can ban users yourself. Before doing this, you must copy the user ID of the user you would like to ban. You may find instructions on how to do so in this [support article](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
 
@@ -182,7 +184,7 @@ Do not remove `false` or the bracket on the last line.
 
 You can ban individual channels from using the command. When a user tries to use the command in a banned channel, they will receive an error message.
 
-If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a channel from the command. You can reach him on Blargbot's support server.
+If you are using the Public Tags version of the command, please contact k6ka#1014 if you need to ban a channel from the command. You can reach him on blargbot's [support server](https://discord.gg/015GVxZxI8rtlJgXF).
 
 If you are using the Custom Command version of the command, you can ban channels yourself. Before doing this, you must copy the channel ID of the channel you would like to ban. You may find instructions on how to do so in this [support article](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
 
@@ -209,7 +211,7 @@ Do not remove `false` or the bracket on the last line.
 
 When a user bombs another user for the first time, the bot will record the timestamp of when they used the command and saves it to its internal database. When the user bombs again, it will check for the timestamp. If it has been more than 60 seconds since the time on the timestamp, or if it cannot find the timestamp, the user will be allowed to bomb, and the bot will save a new timestamp. If it has been less than 60 seconds, the bot will not allow the user to bomb and will inform the user how much time they have to wait before being allowed to bomb again.
 
-You can reset a user's cooldown timer by removing the timestamp. When the user attempts to bomb, the bot will not find a timestamp, and thus allow them to bomb again. This is useful for debugging and testing purposes where it would be inconvenient to wait one minute between bombings.
+You can reset a user's cooldown timer by removing the timestamp. When the user attempts to bomb, the bot will not find a timestamp, and thus allows them to bomb again. This is useful for debugging and testing purposes where it would be inconvenient to wait one minute between bombings.
 
 To reset a user's cooldown timer, do the following:
 
@@ -324,3 +326,21 @@ If a bomb has been set but does not appear to go off even after the timer has su
 ### Command takes a very long time to execute before throwing an `An internal server error has occurred` error
 
 If this occurs, the bot's database may be experiencing a temporary issue that prevents the cooldown timer from functioning correctly. Report the issue on the bot's support server.
+
+## Known issues
+
+### Scores get reset on the Custom Command version of the command when it is renamed
+
+The Custom Command version uses local variables to store the scores. This is to prevent users with the right technical knowledge from changing the scores. It also prevents the scores from being lost if the command needs to be reauthorized under another user.
+
+The consequence to this approach is that the scores are stored under the name that you initially created the command under. If you rename the command, the variables will not be moved over to the new name, and thus all scores will appear to have been reset. Reverting the rename and moving the command back to the old name will restore the scores.
+
+### Mentions show `@invalid-user` on mobile after the bomb is detonated or defused
+
+It is not entirely clear what exactly causes this issue. The issue is not present on the desktop app or on the browser version of Discord, nor does it affect mentions in the embed.
+
+## Support
+
+If you need help with the command, please join blargbot's [support server](https://discord.gg/015GVxZxI8rtlJgXF). My username is `k6ka#1014`; feel free to ping me and ask your question. If you share another server with me, you can also ping me there as well.
+
+Please do not send me a friend request, as I do not accept friend requests from people I do not recognize.
