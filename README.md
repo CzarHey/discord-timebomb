@@ -403,6 +403,6 @@ Please do not send me a friend request, as I do not accept friend requests from 
     * (Public tags version only) Scores now use author variables in order to allow them to persist across servers and remain the same even when the command is renamed locally. This will mean that any scores set prior to this update will be lost.
   * Other changes
     * This command's code is now hosted on GitHub to make it easier to organize and update in the future.
-    * The public tags version is now drastically different from the CC version. The main differences include:
-      * Scores use local variables instead of author variables, so they are not tied to the user who imported the command. This means that scores will not be carried over if the command is renamed.
-      * Scores are entirely local and is not tied to the scores on the public tags system. This means that global scores are not available.
+    * The CC version is now drastically different from the Public Tags version. The main differences include:
+      * Scores on the CC version use local variables instead of author variables, so they are not tied to the user who imported the command. This means that scores will not be carried over if the command is renamed.
+      * Scores on the CC version are entirely local and is not tied to the scores on the public tags system. This means that global scores are not available.
