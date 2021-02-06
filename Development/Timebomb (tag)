@@ -509,7 +509,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 							{//;Add to server streak record}
 							{//;Check if streakrecord is null. It will be null if the user has never had a record.}
 							{if;{get;@timebomb-scores-streakrecord-{guildid}-total};==;;
-								{//;If null, set the record to one, and give the crown to that user}{set;@timebomb-scores-streakrecord-total;1}{set;@timebomb-scores-streakrecord-crown;{get;~victim}};
+								{//;If null, set the record to one, and give the crown to that user}{set;@timebomb-scores-streakrecord-{guildid}-total;1}{set;@timebomb-scores-streakrecord-{guildid}-crown;{get;~victim}};
 								{//;If not null, check to see if the current streak is higher than the streakrecord}{if;{get;@timebomb-scores-streak-{guildid}-{get;~victim}};>;{get;@timebomb-scores-streakrecord-{guildid}-total};
 									{//;If it's higher, set streakrecord to match score-streak}{set;@timebomb-scores-streakrecord-{guildid}-total;{get;@timebomb-scores-streak-{guildid}-{get;~victim}}}
 									{//;Note down the victim's user ID as they are the new crown-holder}{set;@timebomb-scores-streakrecord-{guildid}-crown;{get;~victim}}
