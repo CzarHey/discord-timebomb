@@ -407,4 +407,4 @@ Please do not send me a friend request, as I do not accept friend requests from 
       * Scores on the CC version use local variables instead of author variables, so they are not tied to the user who imported the command. This means that scores will not be carried over if the command is renamed.
       * Scores on the CC version are entirely local and is not tied to the scores on the public tags system. This means that global scores are not available.
 * Version 2.0.1 (released February 6, 2021)
-  * Addressed an issue with server and global streak scores displaying the wrong user when the highest streak is 1. Will not fix existing servers unless the scores are reset, or if someone gets a streak higher than 1. (#5)
+  * Addressed an issue with server and global streak scores displaying the wrong user when the highest streak is 1. Will not fix existing servers unless the scores are reset, or if someone gets a streak higher than 1. ([#5](https://github.com/CzarHey/discord-timebomb/issues/5))
