@@ -350,7 +350,7 @@ Please do not send me a friend request, as I do not accept friend requests from 
 ## Changelog
 
 * Version 1.0 (released May 8, 2020)
-*  Initial release
+  *  Initial release
 * Version 1.1 (released June 21, 2020)
   * Switch "wireColor" and "wireColorText" to use temporary variables for faster performance.
   * Adjust bomb-failmsg mention positioning for consistency.
