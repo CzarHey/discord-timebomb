@@ -5,12 +5,12 @@
 * Give credit where credit is due!
 * See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
 
-Version 2.0T dated December 23, 2020
+Version 2.0.1T dated February 6, 2021
 }
 {//;Version number}
 {void;
-	{set;~version;2.0T}
-	{set;~dated;December 23, 2020}
+	{set;~version;2.0.1T}
+	{set;~dated;February 6, 2021}
 }
 
 {//;Define debugging output, triggered with flag -d.}
@@ -509,7 +509,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 							{//;Add to server streak record}
 							{//;Check if streakrecord is null. It will be null if the user has never had a record.}
 							{if;{get;@timebomb-scores-streakrecord-{guildid}-total};==;;
-								{//;If null, set the record to one}{set;@timebomb-scores-streakrecord-{guildid}-total;1};
+								{//;If null, set the record to one, and give the crown to that user}{set;@timebomb-scores-streakrecord-{guildid}-total;1}{set;@timebomb-scores-streakrecord-{guildid}-crown;{get;~victim}};
 								{//;If not null, check to see if the current streak is higher than the streakrecord}{if;{get;@timebomb-scores-streak-{guildid}-{get;~victim}};>;{get;@timebomb-scores-streakrecord-{guildid}-total};
 									{//;If it's higher, set streakrecord to match score-streak}{set;@timebomb-scores-streakrecord-{guildid}-total;{get;@timebomb-scores-streak-{guildid}-{get;~victim}}}
 									{//;Note down the victim's user ID as they are the new crown-holder}{set;@timebomb-scores-streakrecord-{guildid}-crown;{get;~victim}}
@@ -519,7 +519,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 							{//;Add to global streak record}
 							{//;Check if streakrecord is null. It will be null if the user has never had a record.}
 							{if;{get;@timebomb-scores-streakrecord-global-total};==;;
-								{//;If null, set the record to one}{set;@timebomb-scores-streakrecord-global-total;1};
+								{//;If null, set the record to one, and give the crown to that user}{set;@timebomb-scores-streakrecord-global-total;1}{set;@timebomb-scores-streakrecord-global-crown;{get;~victim}};
 								{//;If not null, check to see if the current streak is higher than the streakrecord}{if;{get;@timebomb-scores-streak-{guildid}-{get;~victim}};>;{get;@timebomb-scores-streakrecord-global-total};
 									{//;If it's higher, set streakrecord to match score-streak}{set;@timebomb-scores-streakrecord-global-total;{get;@timebomb-scores-streak-{guildid}-{get;~victim}}}
 									{//;Note down the victim's user ID as they are the new crown-holder}{set;@timebomb-scores-streakrecord-global-crown;{get;~victim}}
