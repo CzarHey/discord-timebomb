@@ -455,7 +455,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 								{//;If null, set the record to one, and give the crown to that user}{set;timebomb-scores-streakrecord-total;1}{set;timebomb-scores-streakrecord-crown;{get;~victim}};
 								{//;If not null, check to see if the current streak is higher than the streakrecord}{if;{get;timebomb-scores-streak-{get;~victim}};>;{get;timebomb-scores-streakrecord-total};
 									{//;If it's higher, set streakrecord to match score-streak}{set;timebomb-scores-streakrecord-total;{get;timebomb-scores-streak-{get;~victim}}}
-									{//;Note down the victim's user ID as they are the new crown-holder}{set;timebomb-scores-streakrecord-crown;{get;~victim}};
+									{//;Note down the victim's user ID as they are the new crown-holder}{set;timebomb-scores-streakrecord-crown;{get;~victim}}
 								}
 							}
 
