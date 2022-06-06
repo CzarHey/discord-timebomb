@@ -5,79 +5,86 @@
 * Give credit where credit is due!
 * See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
 
-Version 2.0.1CC dated February 6, 2021
+Version 2.1DCC dated June 6, 2022
 }
 {//;Version number}
 {void;
-	{set;~version;2.0.1CC}
-	{set;~dated;February 6, 2021}
+	{set;~version;2.1DCC}
+	{set;~dated;June 6, 2022}
 }
 
 {//;Define debugging output, triggered with flag -d.}
 {function;debug;
-	{if;{flagset;d};==;true;{newline;2}🔧  **Debugging information is available at:** {dump;Report generated {time;YYYY/MM/DD HH:mm:ss}
-		**Version number:** {get;~version} dated {get;~dated}
-		**Command name:** {commandname}
-		**Message sender:** {messagesender} ({exec;person;{messagesender}})
-		**Server:** {guildid} ({guildname})
-		**Is staff:** {isstaff}
-		**Is CC:** {iscc}
-		**User input:** {args}
+	{if;{flagset;d};==;true;{file;Report generated {time;YYYY/MM/DD HH:mm:ss}
+Version number: {get;~version} dated {get;~dated}
+Command name: {commandname}
+Message sender: {messagesender} ({exec;person;{messagesender}})
+Server: {guildid} ({guildname})
+Is staff: {isstaff}
+Is CC: {iscc}
+User input: {args}
 
-		**Variables**
-		Banlists
-		~serverBanned: {get;~serverBanned}
-		~channelBanned: {get;~channelBanned}
-		~userBanned: {get;~userBanned}
+==Variables==
 
-		Debug functionality
-		~canResetVariables: {get;~canResetVariables}
-		~approveToReset: {get;~approveToReset}
-		timebomb-scores-success-flagt: {get;timebomb-scores-success-{flag;t}}
-		timebomb-scores-fail-flagt: {get;timebomb-scores-fail-{flag;t}}
-		timebomb-scores-timeout-flagt: {get;timebomb-scores-timeout-{flag;t}}
-		timebomb-scores-bombs-flagt: {get;timebomb-scores-bombs-{flag;t}}
-		timebomb-scores-streak-flagt: {get;timebomb-scores-streak-{flag;t}}
-		timebomb-scores-streakrecord-flagt: {get;timebomb-scores-streakrecord-{flag;t}}
+Banlists
+~serverBanned: {get;~serverBanned}
+~channelBanned: {get;~channelBanned}
+~userBanned: {get;~userBanned}
 
-		Bomb variables
-		~currentTimeMinusLastTime: {get;~currentTimeMinusLastTime}
-		~canBombUser: {get;~canBombUser}
-		timebomb-lastBombTime-userid: {get;timebomb-lastBombTime-{userid}}
-		~victim: {get;~victim}
-		~victimType: {get;~victimType}
-		~wireColor: {get;~wireColor}
-		~wireColorText: {get;~wireColorText}
-		~msgEmoji: {get;~msgEmoji}
-		~msgColor: {get;~msgColor}
-		~msgTitle: {get;~msgTitle}
-		~msgText: {get;~msgText}
-		~msgFooter: {get;~msgFooter}
-		~msgID: {get;~msgID}
-		~reaction: {get;~reaction}
-		~result: {get;~result}
-		timebomb-scores-success-victim: {get;timebomb-scores-success-{get;~victim}}
-		timebomb-scores-fail-victim: {get;timebomb-scores-fail-{get;~victim}}
-		timebomb-scores-timeout-victim: {get;timebomb-scores-timeout-{get;~victim}}
-		timebomb-scores-bombs-userid: {get;timebomb-scores-bombs-{userid}}
-		timebomb-scores-streak-victim: {get;timebomb-scores-streak-{get;~victim}}
-		timebomb-scores-streakrecord-victim: {get;timebomb-scores-streakrecord-{get;~victim}}
-		~timeLeftToBomb: {get;~timeLeftToBomb}
+Debug functionality
+~canResetVariables: {get;~canResetVariables}
+~approveToReset: {get;~approveToReset}
+@timebomb-scores-success-guildid-flagt: {get;@timebomb-scores-success-{guildid}-{flag;t}}
+@timebomb-scores-fail-guildid-flagt: {get;@timebomb-scores-fail-{guildid}-{flag;t}}
+@timebomb-scores-timeout-guildid-flagt: {get;@timebomb-scores-timeout-{guildid}-{flag;t}}
+@timebomb-scores-bombs-guildid-flagt: {get;@timebomb-scores-bombs-{guildid}-{flag;t}}
+@timebomb-scores-streak-guildid-flagt: {get;@timebomb-scores-streak-{guildid}-{flag;t}}
+@timebomb-scores-streakrecord-guildid-flagt: {get;@timebomb-scores-streakrecord-{guildid}-{flag;t}}
 
-		Scores variables
-		~scoresUser: {get;~scoresUser}
-		timebomb-scores-success-scoresUser: {get;timebomb-scores-success-{flag;t}}
-		timebomb-scores-fail-scoresUser: {get;timebomb-scores-fail-{flag;t}}
-		timebomb-scores-timeout-scoresUser: {get;timebomb-scores-timeout-{flag;t}}
-		timebomb-scores-bombs-scoresUser: {get;timebomb-scores-bombs-{flag;t}}
-		timebomb-scores-streak-scoresUser: {get;timebomb-scores-streak-{flag;t}}
-		timebomb-scores-streakrecord-scoresUser: {get;timebomb-scores-streakrecord-{flag;t}}
-		timebomb-scores-success-total: {get;timebomb-scores-success-total}
-		timebomb-scores-fail-total: {get;timebomb-scores-fail-total}
-		timebomb-scores-timeout-total: {get;timebomb-scores-timeout-total}
-		timebomb-scores-bombs-total: {get;timebomb-scores-bombs-total}
-		timebomb-scores-streak-total: {get;timebomb-scores-streak-total}
-		timebomb-scores-streakrecord-total: {get;timebomb-scores-streakrecord-total}}. The page will expire in seven days.
+Bomb variables
+~currentTimeMinusLastTime: {get;~currentTimeMinusLastTime}
+~canBombUser: {get;~canBombUser}
+@timebomb-lastBombTime-guildid-userid: {get;@timebomb-lastBombTime-{guildid}-{userid}}
+~victim: {get;~victim}
+~victimType: {get;~victimType}
+~wireColor: {get;~wireColor}
+~wireColorText: {get;~wireColorText}
+~msgEmoji: {get;~msgEmoji}
+~msgColor: {get;~msgColor}
+~msgTitle: {get;~msgTitle}
+~msgText: {get;~msgText}
+~msgFooter: {get;~msgFooter}
+~msgID: {get;~msgID}
+~reaction: {get;~reaction}
+~result: {get;~result}
+@timebomb-scores-success-guildid-victim: {get;@timebomb-scores-success-{guildid}-{get;~victim}}
+@timebomb-scores-fail-guildid-victim: {get;@timebomb-scores-fail-{guildid}-{get;~victim}}
+@timebomb-scores-timeout-guildid-victim: {get;@timebomb-scores-timeout-{guildid}-{get;~victim}}
+@timebomb-scores-bombs-guildid-userid: {get;@timebomb-scores-bombs-{guildid}-{userid}}
+@timebomb-scores-streak-guildid-victim: {get;@timebomb-scores-streak-{guildid}-{get;~victim}}
+@timebomb-scores-streakrecord-guildid-victim: {get;@timebomb-scores-streakrecord-{guildid}-{get;~victim}}
+~timeLeftToBomb: {get;~timeLeftToBomb}
+        
+Scores variables
+~scoresUser: {get;~scoresUser}
+@timebomb-scores-success-guildid-scoresUser: {get;@timebomb-scores-success-{guildid}-{flag;t}}
+@timebomb-scores-fail-guildid-scoresUser: {get;@timebomb-scores-fail-{guildid}-{flag;t}}
+@timebomb-scores-timeout-guildid-scoresUser: {get;@timebomb-scores-timeout-{guildid}-{flag;t}}
+@timebomb-scores-bombs-guildid-scoresUser: {get;@timebomb-scores-bombs-{guildid}-{flag;t}}
+@timebomb-scores-streak-guildid-scoresUser: {get;@timebomb-scores-streak-{guildid}-{flag;t}}
+@timebomb-scores-streakrecord-guildid-scoresUser: {get;@timebomb-scores-streakrecord-{guildid}-{flag;t}}
+@timebomb-scores-success-guildid-total: {get;@timebomb-scores-success-{guildid}-total}
+@timebomb-scores-fail-guildid-total: {get;@timebomb-scores-fail-{guildid}-total}
+@timebomb-scores-timeout-guildid-total: {get;@timebomb-scores-timeout-{guildid}-total}
+@timebomb-scores-bombs-guildid-total: {get;@timebomb-scores-bombs-{guildid}-total}
+@timebomb-scores-streak-guildid-total: {get;@timebomb-scores-streak-{guildid}-total}
+@timebomb-scores-streakrecord-guildid-total: {get;@timebomb-scores-streakrecord-{guildid}-total}
+@timebomb-scores-success-global-total: {get;@timebomb-scores-success-global-total}
+@timebomb-scores-fail-global-total: {get;@timebomb-scores-fail-global-total}
+@timebomb-scores-timeout-global-total: {get;@timebomb-scores-timeout-global-total}
+@timebomb-scores-bombs-global-total: {get;@timebomb-scores-bombs-global-total}
+@timebomb-scores-streak-global-total: {get;@timebomb-scores-streak-global-total}
+@timebomb-scores-streakrecord-global-total: {get;@timebomb-scores-streakrecord-global-total};timebomb_debug_output-{time;YYYYMMDDTHHmmss}.txt}
 	}
 }
 
@@ -86,7 +93,7 @@ Version 2.0.1CC dated February 6, 2021
 	{//;Check user input.}
 	{if;{length;{flag;s}};>;0;
 		{set;~scoresUser;{suppresslookup}{userid;{flag;s}}}
-		{if;{get;~scoresUser};==;;{//;
+		{if;{get;~scoresUser};==;`No user found`;{//;
 			If user isn't found, display an error message
 			}❌  |  Oops! {usermention}, either I couldn't find the specified user in this server, or you cancelled the query! Here are some things you can try:{newline}{//;
 			}• Mention the user instead of typing out their username.{newline}{//;
@@ -302,7 +309,7 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 		{//;Get the victim's user ID and save it for later}
 		{suppresslookup}{set;~victim;{userid;{args}}}
 		{//;Validate input—if bomber cancels the query {userid} will return nothing}
-		{if;{length;{get;~victim}};>;0;
+		{if;{get;~victim};!=;`No user found`;
 			{//;If ~victim isn't empty, continue}
 			{//;Get further validation of input—make sure user isn't trying to bomb blargbot, another bot, or themselves.}
 			{set;~victimType;
