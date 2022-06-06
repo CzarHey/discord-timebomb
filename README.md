@@ -411,3 +411,5 @@ Please do not send me a friend request, as I do not accept friend requests from 
 * Version 2.1 (released June 6, 2022)
   * Fix issue with user lookup caused by blargbot's TypeScript update.
   * Debug mode output is now sent as a text file instead of an external webpage.
+* Version 2.1.1 (released XXXX)
+  * Fix issue with scores output not displaying if the server doesn't have a custom icon set.
