@@ -3,7 +3,7 @@
 * Created by k6ka#1014
 * Code is released under a Creative Commons Attribution-ShareAlike license
 * Give credit where credit is due!
-* See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
+* See https://github.com/CzarHey/discord-timebomb for instructions
 
 Version 2.1CC dated June 6, 2022
 }
@@ -27,7 +27,6 @@ User input: {args}
 ==Variables==
 
 Banlists
-~serverBanned: {get;~serverBanned}
 ~channelBanned: {get;~channelBanned}
 ~userBanned: {get;~userBanned}
 
