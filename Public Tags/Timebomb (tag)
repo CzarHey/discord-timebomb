@@ -5,11 +5,11 @@
 * Give credit where credit is due!
 * See https://k6ka.blogspot.com/2020/05/timebomb-command-for-discord.html for instructions
 
-Version 2.1D dated June 6, 2022
+Version 2.1T dated June 6, 2022
 }
 {//;Version number}
 {void;
-	{set;~version;2.1D}
+	{set;~version;2.1T}
 	{set;~dated;June 6, 2022}
 }
 
