@@ -5,11 +5,11 @@
 * Give credit where credit is due!
 * See https://github.com/CzarHey/discord-timebomb for instructions
 
-Version 2.1T dated June 6, 2022
+Version 2.1.1T dated June 6, 2022
 }
 {//;Version number}
 {void;
-	{set;~version;2.1T}
+	{set;~version;2.1.1T}
 	{set;~dated;June 6, 2022}
 }
 
@@ -142,7 +142,7 @@ Scores variables
 					color:{if;{exec;usercolor;{userid}};==;;F7F8F9;{exec;usercolor;{userid}}};
 					footer.icon_url:{useravatar};
 					footer.text:This command was initiated by {exec;person;{userid}};
-					{if;{guildicon};==;null;{//;Do not use thumbnail.url if no guild icon is set, otherwise it will error out};thumbnail.url:{guildicon}{semi}}
+					{if;{guildicon};==;;{//;Do not use thumbnail.url if no guild icon is set, otherwise it will error out};thumbnail.url:{guildicon}{semi}}
 				}
 			}
 			{func.debug}
