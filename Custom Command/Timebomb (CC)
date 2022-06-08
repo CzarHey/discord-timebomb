@@ -5,12 +5,12 @@
 * Give credit where credit is due!
 * See https://github.com/CzarHey/discord-timebomb for instructions
 
-Version 2.1.1CC dated June 6, 2022
+Version 2.1.1CC dated June 8, 2022
 }
 {//;Version number}
 {void;
 	{set;~version;2.1.1CC}
-	{set;~dated;June 6, 2022}
+	{set;~dated;June 8, 2022}
 }
 
 {//;Define debugging output, triggered with flag -d.}
@@ -22,6 +22,10 @@ Message sender: {messagesender} ({exec;person;{messagesender}})
 Server: {guildid} ({guildname})
 Is staff: {isstaff}
 Is CC: {iscc}
+Tag author: {exec;person;{tagauthor}}
+Is author staff: {isstaff;{tagauthor}}
+Tag authorizer: {exec;person;{tagauthorizer}}
+Is authorizer staff: {isstaff;{tagauthorizer}}
 User input: {args}
 
 ==Variables==
