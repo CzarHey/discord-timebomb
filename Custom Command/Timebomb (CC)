@@ -282,7 +282,7 @@ Edit the timebomb-userbanlist command for the list.
 	}
 
 	{//;Is staff check.}
-	{if;{isstaff};==;false;❌  |  This command was not authorized by server staff, or the person who authorized it is no longer staff. Please alert server staff and let them know that someone with these permissions (<https://discordapi.com/permissions.html#8254>) needs to reimport the command.
+	{if;{isstaff;{tagauthorizer}};==;false;❌  |  This command was not authorized by server staff, or the person who authorized it is no longer staff. Please alert server staff and let them know that someone with these permissions (<https://discordapi.com/permissions.html#8254>) needs to reimport the command.
 
 If you need more help regarding bot permissions, you can ask on the bot's support server: https://discord.gg/015GVxZxI8rtlJgXF
 You can also ask {exec;person;249223024962830338}, the author of this command. You can find him on the bot's support server.
