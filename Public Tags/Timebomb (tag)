@@ -329,7 +329,7 @@ Edit the timebomb-userbanlist command for the list.
 	}
 
 	{//;Is staff check.}
-	{if;{isstaff};==;false;❌  |  This command was not authorized by server staff, or the person who authorized it is no longer staff. Please alert server staff and let them know that someone with these permissions (<https://discordapi.com/permissions.html#8254>) needs to do the following:
+	{if;{isstaff;{tagauthorizer}};==;false;❌  |  This command was not authorized by server staff, or the person who authorized it is no longer staff. Please alert server staff and let them know that someone with these permissions (<https://discordapi.com/permissions.html#8254>) needs to do the following:
 
 1. Delete this command with `b!cc delete {commandname}`
 2. Reimport the command with `b!cc import timebomb`
