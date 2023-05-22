@@ -96,11 +96,9 @@ To bomb a user, type `b!timebomb <user>`, replacing `<user>` with either:
 * a user mention (e.g. `@John`)
 * a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-))
 
-If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
+If multiple users have similar usernames, the bot will present you with a list of all matching usernames in a dropdown menu, as shown.
 
 ![Image of blarbot's multi-user selection panel](https://raw.githubusercontent.com/CzarHey/discord-timebomb/main/resources/blargbot%20multi-user%20selection%20demonstration.png)
-
-When prompted, simply type the number of the user you wish to bomb. In the preceding example, to bomb `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
 
 ### Defusing a bomb
 
@@ -135,11 +133,9 @@ To view a user's scores, type `b!timebomb -s <user>`, replacing `<user>` with ei
 * a user mention (e.g. `@John`)
 * a user ID (you can obtain the ID number for a user after enabling [developer mode](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
 
-If multiple users have the same username, the bot may present you with a list of all matching usernames, prefixed with a number, as shown.
+If multiple users have similar usernames, the bot will present you with a list of all matching usernames in a dropdown menu, as shown.
 
 ![Image of blarbot's multi-user selection panel](https://raw.githubusercontent.com/CzarHey/discord-timebomb/main/resources/blargbot%20multi-user%20selection%20demonstration.png)
-
-When prompted, simply type the number of the user you wish to view the scores for. In the preceding example, to view the scores for `k6ka#1014`, type `1` in the channel. To cancel the query, type `c`.
 
 #### Viewing server and global scores
 
@@ -414,3 +410,5 @@ Please do not send me a friend request, as I do not accept friend requests from 
 * Version 2.1.1 (released June 8, 2022)
   * Fix issue with scores output not displaying if the server doesn't have a custom icon set.
   * Add author and authorizer information to debug output to troubleshoot authorization errors.
+* Version 2.1.2 (released May 22, 2023)
+  * Addressed an issue with links in embeds not displaying correctly.
