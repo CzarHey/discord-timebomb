@@ -5,12 +5,12 @@
 * Give credit where credit is due!
 * See https://github.com/CzarHey/discord-timebomb for instructions
 
-Version 2.1.1CC dated June 8, 2022
+Version 2.1.2CC dated May 22, 2023
 }
 {//;Version number}
 {void;
-	{set;~version;2.1.1CC}
-	{set;~dated;June 8, 2022}
+	{set;~version;2.1.2CC}
+	{set;~dated;May 22, 2023}
 }
 
 {//;Define debugging output, triggered with flag -d.}
@@ -273,7 +273,7 @@ Edit the timebomb-userbanlist command for the list.
 					}**__Debug mode__**{newline;2}{//;
 					}To enable debug output, use flag `-d` anywhere in the command. The debug output will be provided when the command ends.{newline;2}{//;
 					}**__GitHub__**{newline;2}{//;
-					}You can access more help or view the source code of the command on [GitHub](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
+					}You can access more help or view the source code of the command on [GitHub](https://github.com/CzarHey/discord-timebomb "github.com/CzarHey/discord-timebomb").{newline;2}{//;
 					}*Type `b!{commandname} -h 2` to view information about troubleshooting.*;
 					color:e09040;
 					footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
@@ -570,8 +570,8 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 		}• To view the server scoreboard, type `b!{commandname} -s`{newline}{//;
 		}• To view a user's scores, type `b!{commandname} -s <username>`;
 		fields.name:Need help?;
-		fields.value:Type `b!{commandname} -h` to view additional documentation for the command. You can also find more documentation on [GitHub](https://github.com/CzarHey/discord-timebomb "https://github.com/CzarHey/discord-timebomb").{newline;2}{//;
-		}If you have any questions, or if you found a bug with the command, join the [blargbot support server](https://discord.gg/015GVxZxI8rtlJgXF "https://discord.gg/015GVxZxI8rtlJgXF") and find me, {exec;person;249223024962830338}, there. I'll do my best to help you out.;
+		fields.value:Type `b!{commandname} -h` to view additional documentation for the command. You can also find more documentation on [GitHub](https://github.com/CzarHey/discord-timebomb "github.com/CzarHey/discord-timebomb").{newline;2}{//;
+		}If you have any questions, or if you found a bug with the command, join the [blargbot support server](https://discord.gg/015GVxZxI8rtlJgXF "discord{zws}.gg/015GVxZxI8rtlJgXF") and find me, {exec;person;249223024962830338}, there. I'll do my best to help you out.;
 		color:e09040;
 		footer.text:Command created by {exec;person;249223024962830338} and is licensed under a CC BY-SA license • Version {get;~version}
 	}
@@ -580,6 +580,6 @@ You can also ask {exec;person;249223024962830338}, the author of this command. Y
 }{//;End blank input check}
 
 ;{//;If not being run as a CC, will output this instead}
-❌  |  This command is being used in the Public Tags system, and will not work properly. Please make sure you import this command into a server, either by typing `b!cc import {commandname}`, or by manually copying the code using the [BBTag Editor](https://blargbot.xyz/tags/editor "https://blargbot.xyz/tags/editor").
+❌  |  This command is being used in the Public Tags system, and will not work properly. Please make sure you import this command into a server, either by typing `b!cc import {commandname}`, or by manually copying the code using the [BBTag Editor](https://blargbot.xyz/tags/editor "blargbot.xyz/tags/editor").
 }{//;End CC check}
 {func.debug}
